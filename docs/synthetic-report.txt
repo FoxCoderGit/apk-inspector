@@ -1,0 +1,44 @@
+APK Risk Checker — Filero
+Это не антивирус, а статический анализ признаков риска.
+Файл не загружался на сервер.
+
+Оценка риска: Низкий (3)
+Причины: чувствительные разрешения Android: 1
+
+Файл: <img src=x onerror=alert(1)>.apk
+Размер: 531 Б
+Тип: application/zip
+
+Структура:
+- файлов: 2
+- APK внутри: 0
+- OBB: 0
+- classes.dex: 0
+- lib/*.so: 0
+- assets: 1
+- res: 0
+- META-INF: 0
+
+Manifest:
+- package: org.example.inspector
+- versionName/versionCode: 1.0
+- minSdk/targetSdk: не найдены
+- permissions: android.permission.INTERNET, android.permission.READ_CONTACTS
+- dangerous permissions: не найдены
+- sensitive permissions: android.permission.READ_CONTACTS
+- exported components: не найдены
+
+Домены/URL/IP/email:
+- http://schemas.android.com/apk/res/android (AndroidManifest.xml)
+- https://example.invalid/demo (assets/example.txt)
+- schemas.android.com (AndroidManifest.xml)
+
+Подозрительные признаки:
+
+Технологии: не определены
+
+Крупные файлы:
+- AndroidManifest.xml — 452 Б
+- assets/example.txt — 56 Б
+
+Пропущено/ошибки:

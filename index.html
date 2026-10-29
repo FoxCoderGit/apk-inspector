@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Inspector — local static analysis</title>
+    <link rel="stylesheet" href="site-shared.css">
+    <link rel="stylesheet" href="apk-checker.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="./" class="logo" aria-label="APK Inspector">
+                <span class="logo-mark">A</span>
+                <span>APK Inspector</span>
+            </a>
+
+            <nav class="nav"><a href="https://github.com/FoxCoderGit/apk-inspector">Source code</a></nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="apk-hero">
+            <div class="container">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Локально в браузере
+                </div>
+                <h1>Проверить <span>APK</span></h1>
+                <p class="hero-text">
+                    APK Risk Checker быстро смотрит структуру APK/XAPK/APKM/ZIP, manifest, разрешения, библиотеки,
+                    домены, URL и подозрительные признаки. Файл не загружается на сервер и не покидает ваш браузер.
+                </p>
+                <div class="search-tags" aria-label="Ключевые возможности">
+                    <span>проверить APK онлайн</span>
+                    <span>без загрузки на сервер</span>
+                    <span>AndroidManifest.xml</span>
+                    <span>permissions</span>
+                    <span>домены и URL</span>
+                    <span>XAPK/APKM</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="apk-workspace">
+            <div class="container">
+                <div class="notice">
+                    <strong>Это не антивирус.</strong>
+                    <span>Инструмент делает только статический анализ признаков риска. Он не доказывает, что приложение безопасно или что это вирус.</span>
+                </div>
+
+                <div class="checker-grid">
+                    <section class="upload-panel" aria-labelledby="upload-title">
+                        <h2 id="upload-title">Выберите файл</h2>
+                        <p>Поддерживаются APK, XAPK, APKM и ZIP. Анализ выполняется через File API без отправки файла на сервер.</p>
+
+                        <label class="dropzone" id="dropzone" for="apk-file">
+                            <input id="apk-file" type="file" accept=".apk,.xapk,.apkm,.zip,application/zip,application/vnd.android.package-archive">
+                            <span class="dropzone-icon">APK</span>
+                            <strong>Перетащите файл сюда или нажмите для выбора</strong>
+                            <span>ZIP-структура читается по оглавлению, без полной распаковки.</span>
+                        </label>
+
+                        <div class="file-summary" id="file-summary" hidden></div>
+
+                        <div class="progress-wrap" aria-live="polite">
+                            <div class="progress-track">
+                                <div class="progress-bar" id="progress-bar"></div>
+                            </div>
+                            <div class="progress-text" id="progress-text">Ожидание файла</div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="button button-primary" type="button" id="copy-report" disabled>Скопировать отчёт</button>
+                            <button class="button" type="button" id="download-report" disabled>Скачать отчёт .txt</button>
+                            <button class="button" type="button" id="clear-report">Очистить</button>
+                        </div>
+
+                        <div class="limits">
+                            <strong>Лимиты MVP</strong>
+                            <span>До 30 МБ на один читаемый файл и до 220 МБ суммарного чтения. Большие медиа, OBB и крупные ассеты не читаются, только показываются как пропущенные.</span>
+                        </div>
+                    </section>
+
+                    <section class="summary-panel" aria-labelledby="summary-title">
+                        <h2 id="summary-title">Итог</h2>
+                        <div id="empty-state" class="empty-state">
+                            Загрузите APK/XAPK/APKM/ZIP, чтобы увидеть оценку риска и карточки результата.
+                        </div>
+                        <div id="result-root" class="result-root" hidden></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <footer class="footer"><div class="container">APK Inspector · extracted from Filero tools</div></footer>
+
+    <script src="apk-checker.js" defer></script>
+
+</body>
+</html>
